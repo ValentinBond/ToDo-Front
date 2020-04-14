@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect } from 'react';
+import React, { lazy, Suspense } from 'react';
 
 import {
   Switch,
@@ -7,9 +7,6 @@ import {
 import PrivateRoute from './utils/privateRoute';
 
 import { makeStyles } from '@material-ui/core/styles';
-import socket from './utils/socketInstance';
-import axios from './utils/axios';
-import { useHistory } from 'react-router-dom';
 
 const Auth = lazy(() => import('./app/components/auth'));
 const HomePage = lazy(() => import('./app/components/home'));
@@ -23,19 +20,6 @@ const useStyles = makeStyles({
 
 function App() {
   const classes = useStyles();
-  const history = useHistory();
-
-  useEffect(() => {
-    axios.interceptors.response.use(response => {
-      return response;
-    }, error => {
-      if (error.response.status === 401) {
-        history.push('/auth');
-      }
-      throw error;
-    });
-    return () => socket.disconnect();
-  }, [history]);
 
   return (
     <div className={classes.app}>
