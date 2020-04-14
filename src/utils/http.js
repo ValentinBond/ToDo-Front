@@ -19,7 +19,7 @@ export function httpRequest(options, params) {
     ...params,
     method: options.method,
     headers,
-    url: options.remote ? options.url : `${process.env.REACT_APP_API}/api/${options.url}`,
+    url: options.remote ? options.url : `${process.env.REACT_APP_API_URL}/api/${options.url}`,
     [dataParam]: options.data
   })
     .then(result => {
