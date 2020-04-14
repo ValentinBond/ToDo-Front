@@ -25,6 +25,7 @@ const useStyles = makeStyles({
   card: {
     margin: '20px 0',
     minWidth: 600,
+    width: 600,
     position: 'relative',
     height: 'max-content'
   },
@@ -36,6 +37,9 @@ const useStyles = makeStyles({
     position: 'absolute',
     top: 10,
     right: 10
+  },
+  description: {
+    overflowWrap: 'break-word'
   }
 });
 
@@ -92,7 +96,7 @@ const Project = ({ project }) => {
           </div>
       </div>
     <CardContent>
-      <p>{project.description}</p>
+      <p className={classes.description}>{project.description}</p>
     </CardContent>
       <CardActions>
         <Link to={`task/${project._id}`}>Details</Link>

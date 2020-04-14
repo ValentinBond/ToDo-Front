@@ -7,12 +7,12 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import {BrowserRouter as Router, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import PrivateRoute from '../../../utils/privateRoute';
-import axios from "../../../utils/axios";
-import socket from "../../../utils/socketInstance";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import axios from '../../../utils/axios';
+import socket from '../../../utils/socketInstance';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -66,9 +66,10 @@ const HomePageComponent = ({ history }) => {
       </AppBar>
       <div>
         <Router>
-          <Suspense fallback={ <div className={classes.loaderWrap}>
+          <Suspense fallback={<div className={classes.loaderWrap}>
             <CircularProgress />
-          </div>}>
+          </div>}
+          >
             <Switch>
               <PrivateRoute path="/task/:id" component={TaskListPage}/>
               <PrivateRoute path="/" component={ProjectListPage}/>

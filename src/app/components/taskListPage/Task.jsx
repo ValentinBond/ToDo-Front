@@ -43,6 +43,9 @@ const useStyles = makeStyles({
     position: 'absolute',
     top: 10,
     right: 10
+  },
+  description: {
+    overflowWrap: 'break-word'
   }
 });
 
@@ -105,7 +108,7 @@ const Task = ({ task }) => {
         </div>
       </div>
       <CardContent>
-        <p>{task.description}</p>
+        <p className={classes.description}>{task.description}</p>
         <div className={classes.cardFooter}>
           <span>Assigned to: <b>{task.user.email}</b></span>
           <span>Status is {task.status} {statusList[task.status]}</span>
